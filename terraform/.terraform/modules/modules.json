@@ -1,0 +1,1 @@
+{"Modules":[{"Source":"./modules/securityGroup","Key":"1.securityGroupModule;./modules/securityGroup","Version":"","Dir":".terraform\\modules\\fb618f695ba06ce7eaca9bbb3bef64f8","Root":""},{"Source":"./modules/instance","Key":"1.instanceModule;./modules/instance","Version":"","Dir":".terraform\\modules\\31aee369ca7564ed0290974f75f284e5","Root":""}]}
