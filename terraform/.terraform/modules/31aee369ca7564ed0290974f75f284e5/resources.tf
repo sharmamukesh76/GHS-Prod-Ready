@@ -10,6 +10,7 @@ resource "aws_instance" "instance" {
   subnet_id = "${var.subnet_public_id}"
   vpc_security_group_ids = ["${var.security_group_ids}"]
   key_name = "${var.key_pair_name}"
+  
 
   tags {
 		"Environment" = "${var.environment_tag}"
