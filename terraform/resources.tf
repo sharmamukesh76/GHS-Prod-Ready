@@ -14,7 +14,7 @@ data "terraform_remote_state" "network" {
 }
 
 module "securityGroupModule" {
-    source			= "./modules/securityGroup"
+  source			= "./modules/securityGroup"
  	access_key		= "${var.access_key}"
 	secret_key		= "${var.secret_key}"
 	region			= "${var.region}"
