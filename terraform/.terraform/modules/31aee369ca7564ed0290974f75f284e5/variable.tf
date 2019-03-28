@@ -11,7 +11,7 @@ variable "vpc_id" {
 }
 variable "key_pair_name" {
   description = "key for server"
-  default = ""
+  default = "prod_Lighthouse"
   
 }
 
