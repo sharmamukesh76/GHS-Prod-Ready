@@ -46,8 +46,12 @@ variable "skip_final_snapshot" {
   default = true
 }
 
+#For S3 bucket
 variable "bucket_name" {
     type = "list"
     default = []
   }
 variable "env_name" {}
+
+
+

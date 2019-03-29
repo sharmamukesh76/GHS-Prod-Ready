@@ -38,3 +38,9 @@ variable "instance_type" {
   description = "EC2 instance type"
   default = "t2.micro"
 }
+
+#For Route53
+variable "sub_name" {
+  type = "list"
+  default = []
+}

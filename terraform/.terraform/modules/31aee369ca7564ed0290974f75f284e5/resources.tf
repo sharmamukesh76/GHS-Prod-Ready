@@ -25,3 +25,25 @@ resource "aws_eip" "testInstanceEip" {
     "Environment" = "${var.environment_tag}"
   }
 }
+
+
+data "aws_route53_zone" "selected" {
+  name         = "grasshopperkiosks.com."
+  private_zone = false
+}
+
+resource "aws_route53_record" "lhb" {
+  zone_id = "${data.aws_route53_zone.selected.zone_id}"
+  name    = "lhbsuperadmin.${data.aws_route53_zone.selected.name}"
+  type    = "A"
+  ttl     = "60"
+  records = ["${aws_eip.testInstanceEip.public_ip}"]
+}
+
+resource "aws_route53_record" "lhbdisp" {
+  zone_id = "${data.aws_route53_zone.selected.zone_id}"
+  name    = "lhbdispadmin.${data.aws_route53_zone.selected.name}"
+  type    = "A"
+  ttl     = "60"
+  records = ["${aws_eip.testInstanceEip.public_ip}"]
+}
