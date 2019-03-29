@@ -9,4 +9,3 @@ output "sg_80" {
 output "sg_443" {
   value = "${aws_security_group.sg_443.id}"
 }
-

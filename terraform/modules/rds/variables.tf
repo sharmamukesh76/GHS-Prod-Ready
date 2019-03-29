@@ -1,4 +1,3 @@
-
 variable "identifier" {}
 
 variable "allocated_storage" {}
@@ -28,10 +27,9 @@ variable "skip_final_snapshot" {
 }
 
 variable "vpc_security_group_ids" {
-  type = "list"
-  default =["sg-0ff5db2c926b78bd8"]
+  type    = "list"
+  default = ["sg-0ff5db2c926b78bd8"]
 }
-
 
 variable "vpc_id" {}
 
@@ -43,24 +41,15 @@ variable "deletion_protection" {
   default = false
 }
 
-
 variable "copy_tags_to_snapshot" {
   default = true
-  
 }
-
-
-
 
 variable "db_subnet_group_name" {
   default = "prod_db_subnet_group"
 }
 
 variable "depends_on" {
-  type = "list"
+  type    = "list"
   default = []
 }
-
-
-
-

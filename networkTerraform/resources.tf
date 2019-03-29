@@ -6,9 +6,10 @@ provider "aws" {
 
 #resources
 resource "aws_vpc" "prod_vpc" {
-  cidr_block = "${var.cidr_block_range}"
+  cidr_block           = "${var.cidr_block_range}"
   enable_dns_support   = true
   enable_dns_hostnames = true
+
   tags {
     "Environment" = "${var.environment_tag}"
   }
@@ -16,39 +17,41 @@ resource "aws_vpc" "prod_vpc" {
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = "${aws_vpc.prod_vpc.id}"
+
   tags {
     "Environment" = "${var.environment_tag}"
   }
 }
 
 resource "aws_subnet" "prod_subnet_public" {
-  vpc_id = "${aws_vpc.prod_vpc.id}"
-  cidr_block = "${var.subnet1_cidr_block_range}"
+  vpc_id                  = "${aws_vpc.prod_vpc.id}"
+  cidr_block              = "${var.subnet1_cidr_block_range}"
   map_public_ip_on_launch = "true"
-  availability_zone = "${var.availability_zone}"
+  availability_zone       = "${var.availability_zone}"
+
   tags {
     "Environment" = "${var.environment_tag}"
-    "Type" = "Public"
+    "Type"        = "Public"
   }
 }
 
 resource "aws_subnet" "prod_subnet_private" {
-  vpc_id = "${aws_vpc.prod_vpc.id}"
-  cidr_block = "${var.subnet2_cidr_block_range}"
+  vpc_id            = "${aws_vpc.prod_vpc.id}"
+  cidr_block        = "${var.subnet2_cidr_block_range}"
   availability_zone = "${var.availability_zone}"
+
   tags {
     "Environment" = "${var.environment_tag}"
-    "Type" = "Private"
+    "Type"        = "Private"
   }
 }
-
 
 resource "aws_route_table" "rtb_public" {
   vpc_id = "${aws_vpc.prod_vpc.id}"
 
   route {
-      cidr_block = "0.0.0.0/0"
-      gateway_id = "${aws_internet_gateway.igw.id}"
+    cidr_block = "0.0.0.0/0"
+    gateway_id = "${aws_internet_gateway.igw.id}"
   }
 
   tags {
@@ -60,4 +63,3 @@ resource "aws_route_table_association" "rta_subnet_public" {
   subnet_id      = "${aws_subnet.prod_subnet_public.id}"
   route_table_id = "${aws_route_table.rtb_public.id}"
 }
-

@@ -1,18 +1,21 @@
-variable "access_key" { }
-variable "secret_key" { }
+variable "access_key" {}
+variable "secret_key" {}
+
 variable "region" {
   default = "us-east-2"
 }
+
 variable "availability_zone" {
   default = "us-east-2a"
 }
+
 variable "environment_tag" {
   description = "Environment tag"
-  default = "prod"
+  default     = "prod"
 }
 
 variable "db_identifier" {}
-  
+
 variable "allocated_storage" {
   default = "20"
 }
@@ -24,6 +27,7 @@ variable "engine" {
 variable "engine_version" {
   default = "5.6.41"
 }
+
 variable "instance_class" {
   default = "db.t2.micro"
 }
@@ -48,10 +52,8 @@ variable "skip_final_snapshot" {
 
 #For S3 bucket
 variable "bucket_name" {
-    type = "list"
-    default = []
-  }
+  type    = "list"
+  default = []
+}
+
 variable "env_name" {}
-
-
-
