@@ -49,3 +49,4 @@ module "db_instance" {
   publicly_accessible = "${var.publicly_accessible}"
   skip_final_snapshot = "${var.skip_final_snapshot}"
 }
+

@@ -45,3 +45,9 @@ variable "publicly_accessible" {
 variable "skip_final_snapshot" {
   default = true
 }
+
+variable "bucket_name" {
+    type = "list"
+    default = []
+  }
+variable "env_name" {}
