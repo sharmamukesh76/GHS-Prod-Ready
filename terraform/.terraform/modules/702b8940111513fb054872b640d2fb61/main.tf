@@ -1,5 +1,5 @@
 
-resource "aws_db_instance" "default" {
+resource "aws_db_instance" "prod" {
   #depends_on             = ["aws_security_group.sg-rds"]
   identifier             = "${var.identifier}"
   allocated_storage      = "${var.allocated_storage}"
@@ -14,4 +14,7 @@ resource "aws_db_instance" "default" {
   multi_az               = "${var.multi_az}"
   publicly_accessible = "${var.publicly_accessible}"
   skip_final_snapshot = "${var.skip_final_snapshot}"
+  backup_retention_period = "${var.backup_retention_period}"
+  copy_tags_to_snapshot  = "${var.copy_tags_to_snapshot}"
+  deletion_protection    = "${var.deletion_protection}"
 }

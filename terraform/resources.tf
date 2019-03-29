@@ -36,7 +36,7 @@ module "instanceModule" {
 module "db_instance" {
   source            = "./modules/rds"
   vpc_id            = "${data.terraform_remote_state.network.vpc_id}"
-  identifier        = "${terraform.workspace}-${var.db_identifier}"
+  identifier        = "${var.db_identifier}"
   allocated_storage = "${var.allocated_storage}"
   engine            = "${var.engine}"
   engine_version    = "${var.engine_version}"

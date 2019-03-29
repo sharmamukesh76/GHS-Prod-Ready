@@ -11,9 +11,8 @@ variable "environment_tag" {
   default = "prod"
 }
 
-variable "db_identifier" {
-  default = "demodbterra"
-}
+variable "db_identifier" {}
+  
 variable "allocated_storage" {
   default = "20"
 }

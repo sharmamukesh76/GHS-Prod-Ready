@@ -35,6 +35,22 @@ variable "vpc_security_group_ids" {
 
 variable "vpc_id" {}
 
+variable "backup_retention_period" {
+  default = 7
+}
+
+variable "deletion_protection" {
+  default = false
+}
+
+
+variable "copy_tags_to_snapshot" {
+  default = true
+  
+}
+
+
+
 
 variable "db_subnet_group_name" {
   default = "prod_db_subnet_group"
