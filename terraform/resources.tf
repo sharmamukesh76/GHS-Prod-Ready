@@ -32,7 +32,7 @@ module "instanceModule" {
   environment_tag    = "${var.environment_tag}"
 }
 
-module "db_instance" {
+ module "db_instance" {
   source            = "./modules/rds"
   vpc_id            = "${data.terraform_remote_state.network.vpc_id}"
   identifier        = "${var.db_identifier}"
@@ -47,4 +47,4 @@ module "db_instance" {
   multi_az            = "${var.multi_az}"
   publicly_accessible = "${var.publicly_accessible}"
   skip_final_snapshot = "${var.skip_final_snapshot}"
-}
+} 
